@@ -1,0 +1,698 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1A64091662C97FD187FCE3D8 /* libPods-OpenFileExampleTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 29D4F8834BDE0CA80356913A /* libPods-OpenFileExampleTests.a */; };
+		33D279072105BD790011A68F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 33D279062105BD790011A68F /* AppDelegate.m */; };
+		33D2790A2105BD790011A68F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33D279092105BD790011A68F /* ViewController.m */; };
+		33D2790D2105BD790011A68F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33D2790B2105BD790011A68F /* Main.storyboard */; };
+		33D2790F2105BD790011A68F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 33D2790E2105BD790011A68F /* Assets.xcassets */; };
+		33D279122105BD790011A68F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33D279102105BD790011A68F /* LaunchScreen.storyboard */; };
+		33D279152105BD790011A68F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 33D279142105BD790011A68F /* main.m */; };
+		33D2791F2105BD790011A68F /* OpenFileExampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 33D2791E2105BD790011A68F /* OpenFileExampleTests.m */; };
+		33D2792A2105BD790011A68F /* OpenFileExampleUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 33D279292105BD790011A68F /* OpenFileExampleUITests.m */; };
+		33F016782106EBC200761A8E /* FilePhotoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 33F016712106EBC200761A8E /* FilePhotoView.m */; };
+		33F016792106EBC200761A8E /* FileProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 33F016732106EBC200761A8E /* FileProgressView.m */; };
+		33F0167A2106EBC200761A8E /* FileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33F016752106EBC200761A8E /* FileViewController.m */; };
+		33F0167B2106EBC200761A8E /* UIViewController+OpenFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 33F016772106EBC200761A8E /* UIViewController+OpenFile.m */; };
+		979C9973D22CBDDE271DAB08 /* libPods-OpenFileExampleUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 966DD88D142763EA1BE4341D /* libPods-OpenFileExampleUITests.a */; };
+		FAFA15FB69DECEFE1435E113 /* libPods-OpenFileExample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 21192D9249A2BC04C0D39929 /* libPods-OpenFileExample.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		33D2791B2105BD790011A68F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 33D278FA2105BD780011A68F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 33D279012105BD780011A68F;
+			remoteInfo = OpenFileExample;
+		};
+		33D279262105BD790011A68F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 33D278FA2105BD780011A68F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 33D279012105BD780011A68F;
+			remoteInfo = OpenFileExample;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0F5F861D44A6E054667A6395 /* Pods-OpenFileExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OpenFileExample.release.xcconfig"; path = "Pods/Target Support Files/Pods-OpenFileExample/Pods-OpenFileExample.release.xcconfig"; sourceTree = "<group>"; };
+		18D4301E5CCE0E645C6CD7BF /* Pods-OpenFileExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OpenFileExample.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OpenFileExample/Pods-OpenFileExample.debug.xcconfig"; sourceTree = "<group>"; };
+		21192D9249A2BC04C0D39929 /* libPods-OpenFileExample.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-OpenFileExample.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		277CD5AD715FA1735A884E9D /* Pods-OpenFileExampleUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OpenFileExampleUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OpenFileExampleUITests/Pods-OpenFileExampleUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		29D4F8834BDE0CA80356913A /* libPods-OpenFileExampleTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-OpenFileExampleTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		33D279022105BD780011A68F /* OpenFileExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OpenFileExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		33D279052105BD790011A68F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		33D279062105BD790011A68F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		33D279082105BD790011A68F /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		33D279092105BD790011A68F /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		33D2790C2105BD790011A68F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		33D2790E2105BD790011A68F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		33D279112105BD790011A68F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		33D279132105BD790011A68F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		33D279142105BD790011A68F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		33D2791A2105BD790011A68F /* OpenFileExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OpenFileExampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		33D2791E2105BD790011A68F /* OpenFileExampleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OpenFileExampleTests.m; sourceTree = "<group>"; };
+		33D279202105BD790011A68F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		33D279252105BD790011A68F /* OpenFileExampleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OpenFileExampleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		33D279292105BD790011A68F /* OpenFileExampleUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OpenFileExampleUITests.m; sourceTree = "<group>"; };
+		33D2792B2105BD790011A68F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		33F0166F2106EBC200761A8E /* DistOpenFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DistOpenFile.h; sourceTree = "<group>"; };
+		33F016702106EBC200761A8E /* FilePhotoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FilePhotoView.h; sourceTree = "<group>"; };
+		33F016712106EBC200761A8E /* FilePhotoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FilePhotoView.m; sourceTree = "<group>"; };
+		33F016722106EBC200761A8E /* FileProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileProgressView.h; sourceTree = "<group>"; };
+		33F016732106EBC200761A8E /* FileProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileProgressView.m; sourceTree = "<group>"; };
+		33F016742106EBC200761A8E /* FileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileViewController.h; sourceTree = "<group>"; };
+		33F016752106EBC200761A8E /* FileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileViewController.m; sourceTree = "<group>"; };
+		33F016762106EBC200761A8E /* UIViewController+OpenFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+OpenFile.h"; sourceTree = "<group>"; };
+		33F016772106EBC200761A8E /* UIViewController+OpenFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+OpenFile.m"; sourceTree = "<group>"; };
+		56662BEF9D6292F03EFD28EA /* Pods-OpenFileExampleTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OpenFileExampleTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-OpenFileExampleTests/Pods-OpenFileExampleTests.release.xcconfig"; sourceTree = "<group>"; };
+		849178BF88838E58DCEA1697 /* Pods-OpenFileExampleTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OpenFileExampleTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OpenFileExampleTests/Pods-OpenFileExampleTests.debug.xcconfig"; sourceTree = "<group>"; };
+		966DD88D142763EA1BE4341D /* libPods-OpenFileExampleUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-OpenFileExampleUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		ADBDC8621742F26F57DB878A /* Pods-OpenFileExampleUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OpenFileExampleUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-OpenFileExampleUITests/Pods-OpenFileExampleUITests.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		33D278FF2105BD780011A68F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FAFA15FB69DECEFE1435E113 /* libPods-OpenFileExample.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		33D279172105BD790011A68F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1A64091662C97FD187FCE3D8 /* libPods-OpenFileExampleTests.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		33D279222105BD790011A68F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				979C9973D22CBDDE271DAB08 /* libPods-OpenFileExampleUITests.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		33D278F92105BD780011A68F = {
+			isa = PBXGroup;
+			children = (
+				33D279042105BD790011A68F /* OpenFileExample */,
+				33D2791D2105BD790011A68F /* OpenFileExampleTests */,
+				33D279282105BD790011A68F /* OpenFileExampleUITests */,
+				33D279032105BD790011A68F /* Products */,
+				9A38185108D0B9A8640592FD /* Pods */,
+				53551389F1C064FB5C7B4272 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		33D279032105BD790011A68F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				33D279022105BD780011A68F /* OpenFileExample.app */,
+				33D2791A2105BD790011A68F /* OpenFileExampleTests.xctest */,
+				33D279252105BD790011A68F /* OpenFileExampleUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		33D279042105BD790011A68F /* OpenFileExample */ = {
+			isa = PBXGroup;
+			children = (
+				33F0166E2106EBC200761A8E /* DistOpenFiles */,
+				33D279052105BD790011A68F /* AppDelegate.h */,
+				33D279062105BD790011A68F /* AppDelegate.m */,
+				33D279082105BD790011A68F /* ViewController.h */,
+				33D279092105BD790011A68F /* ViewController.m */,
+				33D2790B2105BD790011A68F /* Main.storyboard */,
+				33D2790E2105BD790011A68F /* Assets.xcassets */,
+				33D279102105BD790011A68F /* LaunchScreen.storyboard */,
+				33D279132105BD790011A68F /* Info.plist */,
+				33D279142105BD790011A68F /* main.m */,
+			);
+			path = OpenFileExample;
+			sourceTree = "<group>";
+		};
+		33D2791D2105BD790011A68F /* OpenFileExampleTests */ = {
+			isa = PBXGroup;
+			children = (
+				33D2791E2105BD790011A68F /* OpenFileExampleTests.m */,
+				33D279202105BD790011A68F /* Info.plist */,
+			);
+			path = OpenFileExampleTests;
+			sourceTree = "<group>";
+		};
+		33D279282105BD790011A68F /* OpenFileExampleUITests */ = {
+			isa = PBXGroup;
+			children = (
+				33D279292105BD790011A68F /* OpenFileExampleUITests.m */,
+				33D2792B2105BD790011A68F /* Info.plist */,
+			);
+			path = OpenFileExampleUITests;
+			sourceTree = "<group>";
+		};
+		33F0166E2106EBC200761A8E /* DistOpenFiles */ = {
+			isa = PBXGroup;
+			children = (
+				33F0166F2106EBC200761A8E /* DistOpenFile.h */,
+				33F016702106EBC200761A8E /* FilePhotoView.h */,
+				33F016712106EBC200761A8E /* FilePhotoView.m */,
+				33F016722106EBC200761A8E /* FileProgressView.h */,
+				33F016732106EBC200761A8E /* FileProgressView.m */,
+				33F016742106EBC200761A8E /* FileViewController.h */,
+				33F016752106EBC200761A8E /* FileViewController.m */,
+				33F016762106EBC200761A8E /* UIViewController+OpenFile.h */,
+				33F016772106EBC200761A8E /* UIViewController+OpenFile.m */,
+			);
+			name = DistOpenFiles;
+			path = ../../DistOpenFiles;
+			sourceTree = "<group>";
+		};
+		53551389F1C064FB5C7B4272 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				21192D9249A2BC04C0D39929 /* libPods-OpenFileExample.a */,
+				29D4F8834BDE0CA80356913A /* libPods-OpenFileExampleTests.a */,
+				966DD88D142763EA1BE4341D /* libPods-OpenFileExampleUITests.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9A38185108D0B9A8640592FD /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				18D4301E5CCE0E645C6CD7BF /* Pods-OpenFileExample.debug.xcconfig */,
+				0F5F861D44A6E054667A6395 /* Pods-OpenFileExample.release.xcconfig */,
+				849178BF88838E58DCEA1697 /* Pods-OpenFileExampleTests.debug.xcconfig */,
+				56662BEF9D6292F03EFD28EA /* Pods-OpenFileExampleTests.release.xcconfig */,
+				277CD5AD715FA1735A884E9D /* Pods-OpenFileExampleUITests.debug.xcconfig */,
+				ADBDC8621742F26F57DB878A /* Pods-OpenFileExampleUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		33D279012105BD780011A68F /* OpenFileExample */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 33D2792E2105BD790011A68F /* Build configuration list for PBXNativeTarget "OpenFileExample" */;
+			buildPhases = (
+				7280E54A185A40B6D490C1DE /* [CP] Check Pods Manifest.lock */,
+				33D278FE2105BD780011A68F /* Sources */,
+				33D278FF2105BD780011A68F /* Frameworks */,
+				33D279002105BD780011A68F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = OpenFileExample;
+			productName = OpenFileExample;
+			productReference = 33D279022105BD780011A68F /* OpenFileExample.app */;
+			productType = "com.apple.product-type.application";
+		};
+		33D279192105BD790011A68F /* OpenFileExampleTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 33D279312105BD790011A68F /* Build configuration list for PBXNativeTarget "OpenFileExampleTests" */;
+			buildPhases = (
+				CC6C753E60BF8B0889FD0DF3 /* [CP] Check Pods Manifest.lock */,
+				33D279162105BD790011A68F /* Sources */,
+				33D279172105BD790011A68F /* Frameworks */,
+				33D279182105BD790011A68F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				33D2791C2105BD790011A68F /* PBXTargetDependency */,
+			);
+			name = OpenFileExampleTests;
+			productName = OpenFileExampleTests;
+			productReference = 33D2791A2105BD790011A68F /* OpenFileExampleTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		33D279242105BD790011A68F /* OpenFileExampleUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 33D279342105BD790011A68F /* Build configuration list for PBXNativeTarget "OpenFileExampleUITests" */;
+			buildPhases = (
+				CE2790EDC8A8F2109533C1B7 /* [CP] Check Pods Manifest.lock */,
+				33D279212105BD790011A68F /* Sources */,
+				33D279222105BD790011A68F /* Frameworks */,
+				33D279232105BD790011A68F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				33D279272105BD790011A68F /* PBXTargetDependency */,
+			);
+			name = OpenFileExampleUITests;
+			productName = OpenFileExampleUITests;
+			productReference = 33D279252105BD790011A68F /* OpenFileExampleUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		33D278FA2105BD780011A68F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0920;
+				ORGANIZATIONNAME = Dist;
+				TargetAttributes = {
+					33D279012105BD780011A68F = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+					33D279192105BD790011A68F = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 33D279012105BD780011A68F;
+					};
+					33D279242105BD790011A68F = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 33D279012105BD780011A68F;
+					};
+				};
+			};
+			buildConfigurationList = 33D278FD2105BD780011A68F /* Build configuration list for PBXProject "OpenFileExample" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 33D278F92105BD780011A68F;
+			productRefGroup = 33D279032105BD790011A68F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				33D279012105BD780011A68F /* OpenFileExample */,
+				33D279192105BD790011A68F /* OpenFileExampleTests */,
+				33D279242105BD790011A68F /* OpenFileExampleUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		33D279002105BD780011A68F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				33D279122105BD790011A68F /* LaunchScreen.storyboard in Resources */,
+				33D2790F2105BD790011A68F /* Assets.xcassets in Resources */,
+				33D2790D2105BD790011A68F /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		33D279182105BD790011A68F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		33D279232105BD790011A68F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		7280E54A185A40B6D490C1DE /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-OpenFileExample-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CC6C753E60BF8B0889FD0DF3 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-OpenFileExampleTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CE2790EDC8A8F2109533C1B7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-OpenFileExampleUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		33D278FE2105BD780011A68F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				33F0167A2106EBC200761A8E /* FileViewController.m in Sources */,
+				33D2790A2105BD790011A68F /* ViewController.m in Sources */,
+				33D279152105BD790011A68F /* main.m in Sources */,
+				33D279072105BD790011A68F /* AppDelegate.m in Sources */,
+				33F016782106EBC200761A8E /* FilePhotoView.m in Sources */,
+				33F016792106EBC200761A8E /* FileProgressView.m in Sources */,
+				33F0167B2106EBC200761A8E /* UIViewController+OpenFile.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		33D279162105BD790011A68F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				33D2791F2105BD790011A68F /* OpenFileExampleTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		33D279212105BD790011A68F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				33D2792A2105BD790011A68F /* OpenFileExampleUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		33D2791C2105BD790011A68F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 33D279012105BD780011A68F /* OpenFileExample */;
+			targetProxy = 33D2791B2105BD790011A68F /* PBXContainerItemProxy */;
+		};
+		33D279272105BD790011A68F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 33D279012105BD780011A68F /* OpenFileExample */;
+			targetProxy = 33D279262105BD790011A68F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		33D2790B2105BD790011A68F /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				33D2790C2105BD790011A68F /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		33D279102105BD790011A68F /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				33D279112105BD790011A68F /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		33D2792C2105BD790011A68F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		33D2792D2105BD790011A68F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		33D2792F2105BD790011A68F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 18D4301E5CCE0E645C6CD7BF /* Pods-OpenFileExample.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = C5Y43433E6;
+				INFOPLIST_FILE = OpenFileExample/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.dist.OpenFileExample;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				USER_HEADER_SEARCH_PATHS = "${SRCROOT}/**";
+			};
+			name = Debug;
+		};
+		33D279302105BD790011A68F /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0F5F861D44A6E054667A6395 /* Pods-OpenFileExample.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = C5Y43433E6;
+				INFOPLIST_FILE = OpenFileExample/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.dist.OpenFileExample;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				USER_HEADER_SEARCH_PATHS = "${SRCROOT}/**";
+			};
+			name = Release;
+		};
+		33D279322105BD790011A68F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 849178BF88838E58DCEA1697 /* Pods-OpenFileExampleTests.debug.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = OpenFileExampleTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.dist.OpenFileExampleTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/OpenFileExample.app/OpenFileExample";
+			};
+			name = Debug;
+		};
+		33D279332105BD790011A68F /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 56662BEF9D6292F03EFD28EA /* Pods-OpenFileExampleTests.release.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = OpenFileExampleTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.dist.OpenFileExampleTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/OpenFileExample.app/OpenFileExample";
+			};
+			name = Release;
+		};
+		33D279352105BD790011A68F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 277CD5AD715FA1735A884E9D /* Pods-OpenFileExampleUITests.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = OpenFileExampleUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.dist.OpenFileExampleUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = OpenFileExample;
+			};
+			name = Debug;
+		};
+		33D279362105BD790011A68F /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = ADBDC8621742F26F57DB878A /* Pods-OpenFileExampleUITests.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = OpenFileExampleUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.dist.OpenFileExampleUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = OpenFileExample;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		33D278FD2105BD780011A68F /* Build configuration list for PBXProject "OpenFileExample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				33D2792C2105BD790011A68F /* Debug */,
+				33D2792D2105BD790011A68F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		33D2792E2105BD790011A68F /* Build configuration list for PBXNativeTarget "OpenFileExample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				33D2792F2105BD790011A68F /* Debug */,
+				33D279302105BD790011A68F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		33D279312105BD790011A68F /* Build configuration list for PBXNativeTarget "OpenFileExampleTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				33D279322105BD790011A68F /* Debug */,
+				33D279332105BD790011A68F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		33D279342105BD790011A68F /* Build configuration list for PBXNativeTarget "OpenFileExampleUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				33D279352105BD790011A68F /* Debug */,
+				33D279362105BD790011A68F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 33D278FA2105BD780011A68F /* Project object */;
+}
