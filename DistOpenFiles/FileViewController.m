@@ -11,49 +11,57 @@
 #import "FilePhotoView.h"
 #import <AFNetworking/AFNetworking.h>
 
-@interface FileViewController ()
+@interface FileViewController () <UIGestureRecognizerDelegate>
 
 /******************* view *******************/
-@property (nonatomic,strong) FileProgressView *progressView;
-@property (nonatomic,strong) UIWebView *webView;
-@property (nonatomic,strong) FilePhotoView *photoView;
-@property (nonatomic,strong) UILabel *dwgLabel;
+@property (nonatomic, strong) FileProgressView *progressView;
+@property (nonatomic, strong) UIWebView *webView;
+@property (nonatomic, strong) FilePhotoView *photoView;
+@property (nonatomic, strong) UILabel *dwgLabel;
 
-@property (nonatomic,strong) NSString *localPath;
-@property (nonatomic,strong) NSURLSessionDownloadTask  *downloadTask;
-@property (nonatomic,strong) UIDocumentInteractionController *documentController;
+@property (nonatomic, strong) NSString *localPath;
+@property (nonatomic, strong) NSURLSessionDownloadTask  *downloadTask;
+@property (nonatomic, strong) UIDocumentInteractionController *documentController;
 // navigation bar
-@property (nonatomic,strong) UIButton *closeButton;
-@property (nonatomic,strong) UIButton *reloadButton;
+@property (nonatomic, strong) UIButton *closeButton;
+@property (nonatomic, strong) UIButton *reloadButton;
 //status bar
-@property (nonatomic,assign) UIStatusBarStyle previousStatusBarStyle;
-@property (nonatomic,strong) NSTimer *delayHiddenNavTimer;
+@property (nonatomic, assign) UIStatusBarStyle previousStatusBarStyle;
+@property (nonatomic, strong) NSTimer *delayHiddenNavTimer;
+@property (nonatomic, assign) BOOL statusHidden;
 
 @end
 
 @implementation FileViewController
 
-- (instancetype)initWithFileName:(NSString *)fileName filePath:(NSString *)filePath materialId:(NSString *)materialId local:(BOOL)local
-{
+- (instancetype)initWithFileName:(NSString *)fileName filePath:(NSString *)filePath materialId:(NSString *)materialId local:(BOOL)local {
     self = [super init];
     if (self) {
         self.fileName = fileName;
         self.filePath = filePath;
         self.materialId = materialId;
         self.local = local;
+        self.statusHidden = YES;
         if (local) {
-            _localPath = filePath;
+            self.localPath = filePath;
         }
     }
     return self;
 }
 
+- (void)dealloc {
+    if (_delayHiddenNavTimer) {
+        [_delayHiddenNavTimer invalidate];
+        _delayHiddenNavTimer = nil;
+    }
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.view setBackgroundColor:[UIColor blackColor]];
-//    self.extendedLayoutIncludesOpaqueBars = YES;
-//    self.edgesForExtendedLayout = UIRectEdgeNone;
-   
+    //    self.extendedLayoutIncludesOpaqueBars = YES;
+    //    self.edgesForExtendedLayout = UIRectEdgeNone;
+    
     // config scrollView insets
     [self configScrollViewInsets];
     // config subView
@@ -67,18 +75,16 @@
         [self downloadFile];
     }
     // delay hidden navi
-    _delayHiddenNavTimer = [NSTimer scheduledTimerWithTimeInterval:2.0 target:self selector:@selector(hiddenNavi) userInfo:nil repeats:NO];
+    _delayHiddenNavTimer = [NSTimer scheduledTimerWithTimeInterval:2.5 target:self selector:@selector(hiddenNavi) userInfo:nil repeats:NO];
 }
 
-- (void)viewWillAppear:(BOOL)animated
-{
+- (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     _previousStatusBarStyle = [[UIApplication sharedApplication] statusBarStyle];
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent animated:animated];
 }
 
-- (void)viewWillDisappear:(BOOL)animated
-{
+- (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     [[UIApplication sharedApplication] setStatusBarStyle:_previousStatusBarStyle animated:animated];
     // Stop all animations on nav bar
@@ -90,8 +96,7 @@
     }
 }
 
-- (void)configScrollViewInsets
-{
+- (void)configScrollViewInsets {
     if (@available(iOS 11.0, *)) {
         self.webView.scrollView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
     } else {
@@ -99,25 +104,23 @@
     }
 }
 
-- (void)configNavigationBar
-{
+- (void)configNavigationBar {
     self.title = self.fileName;
     UIBarButtonItem *item1 = [[UIBarButtonItem alloc] initWithCustomView:self.reloadButton];
     UIBarButtonItem *item2 = [[UIBarButtonItem alloc] initWithCustomView:self.closeButton];
-    self.navigationItem.rightBarButtonItems = @[item2,item1];
+    self.navigationItem.rightBarButtonItems = @[item2, item1];
     self.navigationController.navigationBar.translucent = YES;
     self.navigationController.navigationBar.barStyle = UIBarStyleBlackTranslucent;
     UINavigationBar *navBar = self.navigationController.navigationBar;
     navBar.tintColor = [UIColor whiteColor];
     navBar.barTintColor = nil;
     navBar.shadowImage = nil;
-//    navBar.translucent = YES;
-//    navBar.barStyle = UIBarStyleBlack;
+    //    navBar.translucent = YES;
+    //    navBar.barStyle = UIBarStyleBlack;
     [navBar setBackgroundImage:nil forBarMetrics:UIBarMetricsDefault];
 }
 
-- (void)configSubView
-{
+- (void)configSubView {
     [self.view addSubview:self.webView];
     [self.view addSubview:self.photoView];
     [self.view addSubview:self.progressView];
@@ -127,42 +130,52 @@
     [self addConstraints];
 }
 
-- (void)addGesture
-{
+- (void)addGesture {
+    
     UITapGestureRecognizer *ges = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hiddenNavi)];
+    ges.delegate = self;
+    ges.numberOfTapsRequired = 1;
+    ges.numberOfTouchesRequired = 1;
     [self.view addGestureRecognizer:ges];
+    // 手势冲突解决
+    UITapGestureRecognizer *doubleTapGesture = [[UITapGestureRecognizer alloc]initWithTarget:self action:nil];
+    doubleTapGesture.delegate = self;
+    doubleTapGesture.numberOfTapsRequired = 2;
+    doubleTapGesture.numberOfTouchesRequired = 1;
+    [self.view addGestureRecognizer:doubleTapGesture];
+    // 这句话的意思就是当后面的手势识别失败的时候,才执行前面的手势
+    [ges requireGestureRecognizerToFail:doubleTapGesture];
 }
 
-- (void)hiddenNavi
-{
+- (void)hiddenNavi {
     // If a timer exists then cancel and release
     if (_delayHiddenNavTimer) {
         [_delayHiddenNavTimer invalidate];
         _delayHiddenNavTimer = nil;
     }
     //BOOL hidden = self.navigationController.navigationBarHidden;
-    BOOL statusHidden = [UIApplication sharedApplication].statusBarHidden;
+    self.statusHidden = [UIApplication sharedApplication].statusBarHidden;
     BOOL animated = YES;
     CGFloat animationDuration = (animated ? 0.35 : 0);
     // Non-view controller based
-    [[UIApplication sharedApplication] setStatusBarHidden:!statusHidden withAnimation:animated ? UIStatusBarAnimationSlide : UIStatusBarAnimationNone];
+    [[UIApplication sharedApplication] setStatusBarHidden:!self.statusHidden withAnimation:animated ? UIStatusBarAnimationSlide : UIStatusBarAnimationNone];
     [UIView animateWithDuration:animationDuration animations:^(void) {
         [self setNeedsStatusBarAppearanceUpdate];
-    } completion:^(BOOL finished) {}];
-    [UIView animateWithDuration:animationDuration animations:^(void) {
-        CGFloat alpha = !statusHidden ? 0 : 1;
+        CGFloat alpha = !self.statusHidden ? 0 : 1;
         // Nav bar slides up on it's own on iOS 7+
         [self.navigationController.navigationBar setAlpha:alpha];
     } completion:^(BOOL finished) {}];
 }
 
-- (BOOL)shouldAutorotate
-{
+- (BOOL)shouldAutorotate {
     return NO;
 }
 
-- (void)addConstraints
-{
+- (BOOL)prefersStatusBarHidden {
+    return !_statusHidden;
+}
+
+- (void)addConstraints {
     self.progressView.bounds = CGRectMake(0, 0, 150, 150);
     self.progressView.center = CGPointMake(self.view.bounds.size.width/2.0, self.view.bounds.size.height/2.0);
     self.photoView.frame = CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height);
@@ -171,8 +184,7 @@
     self.dwgLabel.center = CGPointMake(self.view.bounds.size.width/2.0, self.view.bounds.size.height/2.0);
 }
 
-- (void)viewDidLayoutSubviews
-{
+- (void)viewDidLayoutSubviews {
     self.progressView.bounds = CGRectMake(0, 0, 150, 150);
     self.progressView.center = CGPointMake(self.view.bounds.size.width/2.0, self.view.bounds.size.height/2.0);
     self.photoView.frame = CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height);
@@ -181,16 +193,14 @@
     self.dwgLabel.center = CGPointMake(self.view.bounds.size.width/2.0, self.view.bounds.size.height/2.0);
 }
 
-- (void)close
-{
+- (void)close {
     [self dismissViewControllerAnimated:YES completion:nil];
     [self.downloadTask cancel];
 }
 
 #pragma mark - getter
 
-- (FileProgressView *)progressView
-{
+- (FileProgressView *)progressView {
     if (!_progressView) {
         _progressView = [[FileProgressView alloc] initWithFrame:CGRectMake(0, 0, 150, 150)];
         _progressView.center = self.view.center;
@@ -200,8 +210,7 @@
     return _progressView;
 }
 
-- (UIWebView *)webView
-{
+- (UIWebView *)webView {
     if (!_webView) {
         _webView = [UIWebView new];
         //[_webView setBackgroundColor:[UIColor blackColor]];
@@ -212,8 +221,7 @@
     return _webView;
 }
 
-- (FilePhotoView *)photoView
-{
+- (FilePhotoView *)photoView {
     if (!_photoView) {
         _photoView = [FilePhotoView new];
         [_photoView setBackgroundColor:[UIColor blackColor]];
@@ -222,8 +230,7 @@
     return _photoView;
 }
 
-- (UILabel *)dwgLabel
-{
+- (UILabel *)dwgLabel {
     if (!_dwgLabel) {
         _dwgLabel = [UILabel new];
         [_dwgLabel setText:@"若要打开文件，请单击右上角“刷新”按钮。"];
@@ -234,8 +241,7 @@
     return _dwgLabel;
 }
 
-- (UIButton *)closeButton
-{
+- (UIButton *)closeButton {
     if (!_closeButton) {
         _closeButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 40, 30)];
         //[_closeButton sizeToFit];
@@ -248,8 +254,7 @@
     return _closeButton;
 }
 
-- (UIButton *)reloadButton
-{
+- (UIButton *)reloadButton {
     if (!_reloadButton) {
         _reloadButton = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 40, 30)];
         //[_reloadButton sizeToFit];
@@ -262,8 +267,7 @@
     return _reloadButton;
 }
 
-- (NSString *)localPath
-{
+- (NSString *)localPath {
     if (!_localPath) {
         NSString *documentPath = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).firstObject;
         NSString *fileLocalPath = [documentPath stringByAppendingPathComponent:@"material"];
@@ -277,8 +281,8 @@
 }
 
 #pragma mark - download file
-- (void)downloadFile
-{
+
+- (void)downloadFile {
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:self.filePath]];
     __weak __typeof__(self) weakSelf = self;
@@ -302,15 +306,13 @@
     self.downloadTask = downloadTask;
 }
 
-- (void)downloadFinish
-{
+- (void)downloadFinish {
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [self openFile];
     });
 }
 
-- (void)openFile
-{
+- (void)openFile {
     [self.progressView removeFromSuperview];
     self.progressView = nil;
     NSString *fileExt = [self.fileName pathExtension];
@@ -331,10 +333,17 @@
         [self.webView loadData:txtData MIMEType:@"text/txt" textEncodingName:@"GBK" baseURL:[NSURL fileURLWithPath:self.localPath]];
     } else {
         self.webView.hidden = NO;
-        NSURL * url = [NSURL fileURLWithPath:self.localPath];
+        NSURL *url = [NSURL fileURLWithPath:self.localPath];
         NSURLRequest *request = [NSURLRequest requestWithURL:url];
         [self.webView loadRequest:request];
     }
 }
 
+#pragma mark - 事件传递
+
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer {
+    return YES;
+}
+
 @end
+

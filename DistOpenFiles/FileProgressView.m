@@ -39,6 +39,7 @@
 }
 
 #pragma mark - addSubView
+
 - (void)addSubView
 {
     [self addLayer1];
@@ -53,14 +54,14 @@
     // 创建出CAShapeLayer
     self.shapeLayer = [CAShapeLayer layer];
     self.shapeLayer.frame = self.rect;
-    self.shapeLayer.fillColor = [UIColor whiteColor].CGColor;
+    self.shapeLayer.fillColor = [UIColor clearColor].CGColor;
     
     // 设置线条的宽度和颜色
     self.shapeLayer.lineWidth = self.lineWidth;
-    self.shapeLayer.strokeColor = kCColor(222, 222, 222).CGColor;
+    self.shapeLayer.strokeColor = kCColor(255, 255, 255).CGColor;
     
     // 创建出圆形贝塞尔曲线
-    UIBezierPath* circlePath=[UIBezierPath bezierPathWithArcCenter:CGPointMake(self.rect.size.width / 2, self.rect.size.height / 2 )radius:self.rect.size.height / 2 startAngle:M_PI_2 endAngle:2.5*M_PI  clockwise:YES];
+    UIBezierPath* circlePath = [UIBezierPath bezierPathWithArcCenter:CGPointMake(self.rect.size.width / 2, self.rect.size.height / 2) radius:self.rect.size.height / 2 startAngle:M_PI_2 endAngle:2.5*M_PI  clockwise:YES];
     // 让贝塞尔曲线与CAShapeLayer产生联系
     self.shapeLayer.path = circlePath.CGPath;
     // 添加并显示
@@ -77,7 +78,8 @@
     
     // 设置线条的宽度和颜色
     self.shapeLayer2.lineWidth = self.lineWidth;
-    self.shapeLayer2.strokeColor = kCColor(34.0, 152.0, 239.0).CGColor;
+    self.shapeLayer2.strokeColor = kCColor(29.0, 185.0, 14.0).CGColor;
+
     [self.layer addSublayer:self.shapeLayer2];
 }
 
@@ -91,7 +93,7 @@
     
     //设置线条的宽度和颜色
     self.cicleLayer.lineWidth = self.lineWidth;
-    self.cicleLayer.strokeColor = kCColor(34.0, 152.0, 239.0).CGColor;
+    self.cicleLayer.strokeColor = kCColor(29.0, 185.0, 14.0).CGColor;
     
     [self.layer addSublayer:self.cicleLayer];
 }
@@ -102,7 +104,7 @@
     view.center = CGPointMake(self.rect.size.width / 2, self.rect.size.height);
     view.layer.cornerRadius = 10;
     view.layer.masksToBounds = YES;
-    view.backgroundColor = kCColor(34.0, 152.0, 239.0);
+    view.backgroundColor = kCColor(29.0, 185.0, 14.0);
     _roundView = view;
     [self addSubview:view];
 }
@@ -115,7 +117,7 @@
     labelTwo.text = @"0%";
     labelTwo.textAlignment = NSTextAlignmentCenter;
     labelTwo.font = [UIFont systemFontOfSize:40.0];
-    labelTwo.textColor =  kCColor(34.0, 152.0, 239.0);
+    labelTwo.textColor = kCColor(29.0, 185.0, 14.0);
     [self addSubview:labelTwo];
 }
 

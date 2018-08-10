@@ -32,6 +32,8 @@
 - (void)clicked
 {
     [self openFileWithName:@"阿里巴巴Java开发手册.pdf" filePath:@"http://61.133.111.94:82/LYYD/Temp/Materials/380/2984.pdf" materialId:@"1" local:NO];
+//    [self openFileWithName:@"word文件.xlsx" filePath:@"http://192.168.1.36/JRYDService/Temp/Materials/1328/17503..xlsx" materialId:@"1" local:NO];
+//    http://192.168.1.36/JRYDService/Temp/Materials/1328/17503..xlsx
 //    [self openFileWithName:@"阿里巴巴Java开发手册.jpg" filePath:@"http://61.133.111.94:82/LYYD/Temp/Materials/165/633.jpg" materialId:@"1" local:NO];
     //[self openFileWithName:@"阿里巴巴Java开发手册.dwg" filePath:@"http://61.133.111.94:82/LYYD/Temp/Materials/165/2904.dwg" materialId:@"1" local:NO];
     //http://61.133.111.94:82/LYYD/Temp/Materials/165/632.pdf
