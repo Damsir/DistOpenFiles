@@ -328,9 +328,25 @@
         [self.documentController presentOptionsMenuFromRect:CGRectMake(455, 440, 100, 100) inView:self.view animated:YES];
     } else if ([fileExt isEqualToString:@"txt"]) {
         self.webView.hidden = NO;
+        /**
+         * 中文乱码问题(txt)
+         */
         NSData *txtData = [NSData dataWithContentsOfFile:self.localPath];
+        // 判断是UNICODE编码
+        NSString *isUNICODE = [[NSString alloc] initWithData:txtData encoding:NSUTF8StringEncoding];
+        // 还是ANSI编码
+        NSString *isANSI = [[NSString alloc] initWithData:txtData encoding:-2147482062];
+        if (isUNICODE) {
+            NSString *retStr = [[NSString alloc] initWithCString:[isUNICODE UTF8String] encoding:NSUTF8StringEncoding];
+            NSData *data = [retStr dataUsingEncoding:NSUTF16StringEncoding];
+            [data writeToFile:self.localPath atomically:YES];
+        } else if(isANSI) {
+            NSData *data = [isANSI dataUsingEncoding:NSUTF16StringEncoding];
+            [data writeToFile:self.localPath atomically:YES];
+        }
+        [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:self.localPath]]];
         // 自定义一个编码方式
-        [self.webView loadData:txtData MIMEType:@"text/txt" textEncodingName:@"GBK" baseURL:[NSURL fileURLWithPath:self.localPath]];
+        //        [self.webView loadData:txtData MIMEType:@"text/txt" textEncodingName:@"GBK" baseURL:[NSURL fileURLWithPath:self.localPath]];
     } else {
         self.webView.hidden = NO;
         NSURL *url = [NSURL fileURLWithPath:self.localPath];
