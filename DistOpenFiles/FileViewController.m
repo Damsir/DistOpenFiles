@@ -9,13 +9,14 @@
 #import "FileViewController.h"
 #import "FileProgressView.h"
 #import "FilePhotoView.h"
+#import <WebKit/WebKit.h>
 #import <AFNetworking/AFNetworking.h>
 
 @interface FileViewController () <UIGestureRecognizerDelegate>
 
 /******************* view *******************/
 @property (nonatomic, strong) FileProgressView *progressView;
-@property (nonatomic, strong) UIWebView *webView;
+@property (nonatomic, strong) WKWebView *wkWebView;
 @property (nonatomic, strong) FilePhotoView *photoView;
 @property (nonatomic, strong) UILabel *dwgLabel;
 
@@ -98,7 +99,7 @@
 
 - (void)configScrollViewInsets {
     if (@available(iOS 11.0, *)) {
-        self.webView.scrollView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+        self.wkWebView.scrollView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
     } else {
         self.automaticallyAdjustsScrollViewInsets = NO;
     }
@@ -121,7 +122,7 @@
 }
 
 - (void)configSubView {
-    [self.view addSubview:self.webView];
+    [self.view addSubview:self.wkWebView];
     [self.view addSubview:self.photoView];
     [self.view addSubview:self.progressView];
     [self.view addSubview:self.dwgLabel];
@@ -131,7 +132,6 @@
 }
 
 - (void)addGesture {
-    
     UITapGestureRecognizer *ges = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hiddenNavi)];
     ges.delegate = self;
     ges.numberOfTapsRequired = 1;
@@ -179,7 +179,7 @@
     self.progressView.bounds = CGRectMake(0, 0, 150, 150);
     self.progressView.center = CGPointMake(self.view.bounds.size.width/2.0, self.view.bounds.size.height/2.0);
     self.photoView.frame = CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height);
-    self.webView.frame = CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height);
+    self.wkWebView.frame = CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height);
     [self.dwgLabel sizeToFit];
     self.dwgLabel.center = CGPointMake(self.view.bounds.size.width/2.0, self.view.bounds.size.height/2.0);
 }
@@ -188,7 +188,7 @@
     self.progressView.bounds = CGRectMake(0, 0, 150, 150);
     self.progressView.center = CGPointMake(self.view.bounds.size.width/2.0, self.view.bounds.size.height/2.0);
     self.photoView.frame = CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height);
-    self.webView.frame = CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height);
+    self.wkWebView.frame = CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height);
     [self.dwgLabel sizeToFit];
     self.dwgLabel.center = CGPointMake(self.view.bounds.size.width/2.0, self.view.bounds.size.height/2.0);
 }
@@ -210,15 +210,14 @@
     return _progressView;
 }
 
-- (UIWebView *)webView {
-    if (!_webView) {
-        _webView = [UIWebView new];
-        //[_webView setBackgroundColor:[UIColor blackColor]];
-        [_webView setHidden:YES];
-        [_webView setScalesPageToFit:YES];
-        //[_webView sizeToFit];
+- (WKWebView *)wkWebView {
+    if (!_wkWebView) {
+        _wkWebView = [WKWebView new];
+        //[_wkWebView setBackgroundColor:[UIColor blackColor]];
+        [_wkWebView setHidden:YES];
+//        [_wkWebView sizeToFit];
     }
-    return _webView;
+    return _wkWebView;
 }
 
 - (FilePhotoView *)photoView {
@@ -327,7 +326,7 @@
         self.documentController = documentController;
         [self.documentController presentOptionsMenuFromRect:CGRectMake(455, 440, 100, 100) inView:self.view animated:YES];
     } else if ([fileExt isEqualToString:@"txt"]) {
-        self.webView.hidden = NO;
+        self.wkWebView.hidden = NO;
         /**
          * 中文乱码问题(txt)
          */
@@ -344,14 +343,14 @@
             NSData *data = [isANSI dataUsingEncoding:NSUTF16StringEncoding];
             [data writeToFile:self.localPath atomically:YES];
         }
-        [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:self.localPath]]];
+        [self.wkWebView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:self.localPath]]];
         // 自定义一个编码方式
-        //        [self.webView loadData:txtData MIMEType:@"text/txt" textEncodingName:@"GBK" baseURL:[NSURL fileURLWithPath:self.localPath]];
+        // [self.webView loadData:txtData MIMEType:@"text/txt" textEncodingName:@"GBK" baseURL:[NSURL fileURLWithPath:self.localPath]];
     } else {
-        self.webView.hidden = NO;
+        self.wkWebView.hidden = NO;
         NSURL *url = [NSURL fileURLWithPath:self.localPath];
         NSURLRequest *request = [NSURLRequest requestWithURL:url];
-        [self.webView loadRequest:request];
+        [self.wkWebView loadRequest:request];
     }
 }
 
