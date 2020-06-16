@@ -11,10 +11,10 @@
 
 @implementation UIViewController (OpenFile)
 
-- (void)openFileWithName:(NSString *)name filePath:(NSString *)filePath materialId:(NSString *)materialId local:(BOOL)local
-{
-    FileViewController *fileViewController = [[FileViewController alloc] initWithFileName:name filePath:filePath materialId:materialId local:local];
-    UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:fileViewController];
+- (void)openFileWithName:(NSString *)name filePath:(NSString *)filePath fileId:(NSString *)fileId local:(BOOL)local {
+    FileViewController *fileViewController = [[FileViewController alloc] initWithFileName:name filePath:filePath fileId:fileId local:local];
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:fileViewController];
+    nav.modalPresentationStyle = UIModalPresentationFullScreen;
     [self presentViewController:nav animated:YES completion:nil];
 }
 

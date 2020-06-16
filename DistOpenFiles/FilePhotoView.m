@@ -55,8 +55,7 @@
 //    return self;
 //}
 
-- (void)showImageFilePath:(NSString *)filePath
-{
+- (void)showImageFilePath:(NSString *)filePath {
     UIImage *image = [UIImage imageWithContentsOfFile:filePath];
     self.imageView.frame = [self caculateOriginImageSizeWith:image];
 //    self.imageView.frame = CGRectMake(0, 0, WIDTH, HEIGHT);

@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "DistOpenFiles"
-  s.version      = "1.0.3"
+  s.version      = "1.0.4"
   s.summary      = "打开，预览 -> 本地，网络文件"
   s.author       = { "Damrin" => "75081647@qq.com" }
   s.homepage    = 'https://github.com/Damsir/DistOpenFiles'

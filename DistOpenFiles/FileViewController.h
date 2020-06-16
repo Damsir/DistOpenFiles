@@ -13,14 +13,14 @@
 /**
  * fileName: 文件名字
  * filePath: 文件地址
- * fileExt : 文件后缀
+ * fileId  : 文件标识
  * local   : 是否是本地文件
  */
 @property (nonatomic,strong) NSString *fileName;
 @property (nonatomic,strong) NSString *filePath;
-@property (nonatomic,strong) NSString *materialId;
+@property (nonatomic,strong) NSString *fileId;
 @property (nonatomic,assign) BOOL local;
 
-- (instancetype)initWithFileName:(NSString *)fileName filePath:(NSString *)filePath materialId:(NSString *)materialId local:(BOOL)local;
+- (instancetype)initWithFileName:(NSString *)fileName filePath:(NSString *)filePath fileId:(NSString *)fileId local:(BOOL)local;
 
 @end

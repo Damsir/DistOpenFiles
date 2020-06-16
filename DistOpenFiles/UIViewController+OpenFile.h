@@ -10,10 +10,10 @@
 
 @interface UIViewController (OpenFile)
 /*
- * name: 文件名 如：文件.pdf
+ * name    : 文件名 如：文件.pdf
  * filePath: 文件的下载路径
- * materialId : 文件的Id(唯一标识) 如：3.8656b3fb-95c5-4855-9b90-90f572fd5d32
+ * fileId  : 文件的Id(唯一标识) 如：8656b3fb-95c5-4855-9b90-90f572fd5d32
  */
-- (void)openFileWithName:(NSString *)name filePath:(NSString *)filePath materialId:(NSString *)materialId local:(BOOL)local;
+- (void)openFileWithName:(NSString *)name filePath:(NSString *)filePath fileId:(NSString *)fileId local:(BOOL)local;
 
 @end

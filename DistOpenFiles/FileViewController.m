@@ -35,12 +35,12 @@
 
 @implementation FileViewController
 
-- (instancetype)initWithFileName:(NSString *)fileName filePath:(NSString *)filePath materialId:(NSString *)materialId local:(BOOL)local {
+- (instancetype)initWithFileName:(NSString *)fileName filePath:(NSString *)filePath fileId:(NSString *)fileId local:(BOOL)local {
     self = [super init];
     if (self) {
         self.fileName = fileName;
         self.filePath = filePath;
-        self.materialId = materialId;
+        self.fileId = fileId;
         self.local = local;
         self.statusHidden = YES;
         if (local) {
@@ -274,7 +274,7 @@
         if (![[NSFileManager defaultManager] fileExistsAtPath:fileLocalPath isDirectory:&dictionary]) {
             [[NSFileManager defaultManager] createDirectoryAtPath:fileLocalPath withIntermediateDirectories:YES attributes:nil error:nil];
         }
-        _localPath = [NSString stringWithFormat:@"%@/%@.%@",fileLocalPath,self.materialId,self.fileName.pathExtension];
+        _localPath = [NSString stringWithFormat:@"%@/%@.%@", fileLocalPath, self.fileId, self.fileName.pathExtension];
     }
     return _localPath;
 }
@@ -343,14 +343,21 @@
             NSData *data = [isANSI dataUsingEncoding:NSUTF16StringEncoding];
             [data writeToFile:self.localPath atomically:YES];
         }
-        [self.wkWebView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:self.localPath]]];
+        NSURL *url = [NSURL fileURLWithPath:self.localPath];
+//        [self.wkWebView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:self.localPath]]];
         // 自定义一个编码方式
         // [self.webView loadData:txtData MIMEType:@"text/txt" textEncodingName:@"GBK" baseURL:[NSURL fileURLWithPath:self.localPath]];
+        // 调查发现是因为WKWebView不能访问相关文件的问题,是因为沙箱安全限制。
+        // 原因是WKWebView是不允许通过loadRequest的方法来加载本地根目录的文件
+        [self.wkWebView loadFileURL:url allowingReadAccessToURL:url];
     } else {
         self.wkWebView.hidden = NO;
         NSURL *url = [NSURL fileURLWithPath:self.localPath];
         NSURLRequest *request = [NSURLRequest requestWithURL:url];
-        [self.wkWebView loadRequest:request];
+//        [self.wkWebView loadRequest:request];
+        // 调查发现是因为WKWebView不能访问相关文件的问题,是因为沙箱安全限制。
+        // 原因是WKWebView是不允许通过loadRequest的方法来加载本地根目录的文件
+        [self.wkWebView loadFileURL:url allowingReadAccessToURL:url];
     }
 }
 
